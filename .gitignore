@@ -3,7 +3,6 @@ __pycache__/
 .venv/
 venv/
 .env
-config/jq_auth.json
 data/cache/
 output/
 storage/*.db
@@ -11,3 +10,9 @@ storage/*.db
 dist/
 build/
 .pytest_cache/
+
+# 策略研究产物与运行输出（不纳入版本库）
+*.json
+*.log
+*.txt
+research/strategies/STR-*/
