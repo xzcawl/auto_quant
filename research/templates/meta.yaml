@@ -1,0 +1,25 @@
+id: ""
+name: ""
+status: draft  # draft | implemented | backtested | reviewed | archived
+platform: joinquant  # joinquant | local_macd
+tags: []
+created_at: ""
+updated_at: ""
+
+# joinquant: 聚宽策略 .py 路径（相对项目根）
+jq_code_path: ""
+
+# local_macd: 本地 MACD 底背离参数（可选覆盖 config/settings.yaml）
+local_params: {}
+
+backtest:
+  local:
+    start_date: ""
+    end_date: ""
+    max_symbols: 5
+  joinquant:
+    start_date: ""
+    end_date: ""
+
+latest_run: null
+notes: ""

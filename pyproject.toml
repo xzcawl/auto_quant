@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auto-quant"
+version = "0.1.0"
+description = "Local quant backtest + JoinQuant automation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "akshare>=1.14",
+    "backtrader>=1.9.78",
+    "jinja2>=3.1",
+    "numpy>=1.24",
+    "optuna>=3.5",
+    "pandas>=2.0",
+    "playwright>=1.40",
+    "pyarrow>=14.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+auto-quant = "auto_quant.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

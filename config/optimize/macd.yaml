@@ -1,0 +1,10 @@
+search_space:
+  ma_trend: [20, 30]
+  stop_loss_pct: [-0.02, -0.03, -0.05]
+  hold_days: [3, 4, 5, 6, 7, 8, 10]
+  macd_fast: [10, 12]
+  macd_slow: [24, 26]
+  macd_signal: [9]
+
+objective: "avg_trade_return"  # 最大化平均每笔收益（文章指标）
+max_combinations: 24

@@ -1,0 +1,59 @@
+# 回测区间
+backtest:
+  start_date: "2023-01-01"
+  end_date: "2024-12-31"
+  initial_cash: 1000000
+  benchmark: "000300.XSHG"
+
+# 股票池：hs300 = 沪深300成分（MVP 限制数量以加速）
+universe:
+  mode: "hs300"  # hs300 | custom
+  max_symbols: 5  # MVP 先用少量股票验证流程（可改大 30+）
+  custom_symbols: []
+
+# 交易成本（文章强调必须计入）
+costs:
+  commission: 0.00025
+  stamp_tax: 0.001
+  slippage: 0.001
+
+# MACD 底背离策略默认参数
+strategy:
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+  ma_trend: 20
+  stop_loss_pct: -0.03
+  hold_days: 6
+
+# 数据缓存
+data:
+  cache_dir: "data/cache"
+  min_freq: "30"  # 30分钟
+
+# 优化与 guards
+optimizer:
+  max_rounds: 20
+  max_signals_per_day: 5
+  max_single_loss_pct: -0.15
+  train_end: "2023-12-31"
+  validate_start: "2024-01-01"
+
+# 聚宽自动化
+joinquant:
+  auth_state: "config/jq_auth.json"
+  strategy_list_url: "https://www.joinquant.com/algorithm/index/list"
+  strategy_new_url: "https://www.joinquant.com/algorithm/index/new"
+  backtest_url: "https://www.joinquant.com/algorithm/index/list"
+  # 自动化从「策略列表」按自定义名称新建/打开，不再用无 id 的 /edit（会都叫「简单策略」）
+  jq_backtest_start: "2024-01-01"
+  jq_backtest_end: "2024-12-31"
+  poll_interval_sec: 30
+  poll_timeout_sec: 3600
+  headless: false
+  # 聚宽账户并行回测上限（免费档多为 2）；满员时轮询等待空槽再提交
+  max_parallel_backtests: 2
+  parallel_wait_interval_sec: 45
+  parallel_wait_timeout_sec: 7200
+  parallel_submit_max_attempts: 120
+  backtest_queue_url: "https://www.joinquant.com/algorithm/index/list"

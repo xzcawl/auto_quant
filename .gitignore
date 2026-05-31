@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+config/jq_auth.json
+data/cache/
+output/
+storage/*.db
+*.egg-info/
+dist/
+build/
+.pytest_cache/
